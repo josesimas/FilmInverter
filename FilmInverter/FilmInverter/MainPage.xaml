@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FilmInverter.MainPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="1" Clicked="Take_OnClicked" Text="Take Picture"></Button>
+        <Button Grid.Row="2" Clicked="Pick_OnClicked" Text="Pick Image"></Button>
+        <Button Grid.Row="3" Clicked="View_OnClicked" Text="View Image"></Button>
+        <Button Grid.Row="4" Clicked="Invert_OnClicked" Text="Invert"></Button>
+        <Button Grid.Row="5" Clicked="InvertBw_OnClicked" Text="Invert and BW"></Button>
+        <Button Grid.Row="5" Clicked="SaveOriginal_OnClicked" Text="Save Original"></Button>
+    </Grid>
+
+</ContentPage>
