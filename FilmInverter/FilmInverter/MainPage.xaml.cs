@@ -21,12 +21,22 @@
             var galleryBasePath = galleryPathService.GetGalleryBasePath();
             
             var photo = await MediaPicker.CapturePhotoAsync();
-            if(photo is null)
+            if(photo?.FullPath is null)
                 return;
-
-            _path = photo.FullPath;
             
-            File.Copy(photo.FullPath, Path.Combine(galleryBasePath, Path.GetFileName(photo.FullPath)));
+            _path = Path.Combine(galleryBasePath, Path.GetFileName(photo.FullPath));
+            try
+            {
+                var status = await Permissions.RequestAsync<Permissions.StorageWrite>();
+                if (status == PermissionStatus.Granted)
+                    File.Copy(photo.FullPath, _path);
+                File.Delete(photo.FullPath);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                //Work in readonly mode, this phone does not let you save the files to the gallery.
+                _path = photo.FullPath;
+            }
         }
 
         private async void Pick_OnClicked(object sender, EventArgs e)
@@ -55,14 +65,6 @@
             if (string.IsNullOrEmpty(_path))
                 return;
             await Navigation.PushModalAsync(new ImagePage(_path, true, true));
-        }
-
-        private void SaveOriginal_OnClicked(object sender, EventArgs e)
-        {
-            if(string.IsNullOrEmpty(_path))
-                return;
-
-
         }
     }
 }

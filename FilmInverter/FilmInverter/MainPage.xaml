@@ -19,7 +19,6 @@
         <Button Grid.Row="3" Clicked="View_OnClicked" Text="View Image"></Button>
         <Button Grid.Row="4" Clicked="Invert_OnClicked" Text="Invert"></Button>
         <Button Grid.Row="5" Clicked="InvertBw_OnClicked" Text="Invert and BW"></Button>
-        <Button Grid.Row="5" Clicked="SaveOriginal_OnClicked" Text="Save Original"></Button>
     </Grid>
 
 </ContentPage>
