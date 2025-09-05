@@ -4,11 +4,6 @@
              xmlns:local="clr-namespace:FilmInverter;assembly=FilmInverter"
              x:Class="FilmInverter.ImagePage">
     <ContentPage.Content>
-        <!--<StackLayout>
-            <Label Text="Loading..."
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>-->
         <Grid>
             <local:PinchToZoomContainer x:Name="Container">
             </local:PinchToZoomContainer>
